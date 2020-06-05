@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <QuestsSorted>
-    <QuestsSorted Action="RunCode" NameClass="FNVQuesterAuthSettings.Load();&#xD;&#xA;        if (FNVQuesterAuthSettings.CurrentSetting.TransactionId == null)&#xD;&#xA;        {&#xD;&#xA;            FNVQuesterAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        FNVQuesterAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(FNVQuesterAuthSettings.CurrentSetting.TransactionId, &quot;e8b609dcf76e&quot;); &#xD;&#xA;        ControlAuthentication.SetControl(5);&#xD;&#xA;&#xD;&#xA;NpcDB.AcceptOnlyProfileNpc = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;&#xD;&#xA;QuesterSettings.SettingsKalimdor();&#xD;&#xA;wManager.Wow.Forms.UserControlTabGeneralSettings.ReloadGeneralSettings();" />
+    <QuestsSorted Action="RunCode" NameClass="FNVQuesterAuthSettings.Load();&#xD;&#xA;        if (false)&#xD;&#xA;        {&#xD;&#xA;            FNVQuesterAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        FNVQuesterAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(FNVQuesterAuthSettings.CurrentSetting.TransactionId, &quot;e8b609dcf76e&quot;); &#xD;&#xA;        ControlAuthentication.SetControl(5);&#xD;&#xA;&#xD;&#xA;NpcDB.AcceptOnlyProfileNpc = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;&#xD;&#xA;QuesterSettings.SettingsKalimdor();&#xD;&#xA;wManager.Wow.Forms.UserControlTabGeneralSettings.ReloadGeneralSettings();" />
     <QuestsSorted Action="If" NameClass="!Quest.GetQuestCompleted(729)" />
     <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.Repair = false;" />
     <QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int) ContinentId.Azeroth" />
@@ -2384,8 +2384,6 @@ public class FlightMaster
         FMListe.Add(SearingGorge);
         FlightMasterDB BurningSteppes = new FlightMasterDB("Burning Steppes", 2299, new Vector3(-8365.1f, -2758.5f, 185.6f), false);
         FMListe.Add(BurningSteppes);
-        FlightMasterDB BlastedLands = new FlightMasterDB("Blasted Lands", 8609, new Vector3(-11110.2f, -3437.1f, 79.2f), false);
-        FMListe.Add(BlastedLands);
         FlightMasterDB Azshara = new FlightMasterDB("Azshara", 12577, new Vector3(2718.2f, -3880.8f, 101.4f), true);
         FMListe.Add(Azshara);
         FlightMasterDB Felwood = new FlightMasterDB("Felwood", 12578, new Vector3(6204.2f, -1951.4f, 571.3f), true);
@@ -3814,7 +3812,6 @@ public class ProgressSettings : Settings
             this.Westfall = false;
             this.Duskwood = false;
             this.StranglethornValley = false;
-            this.BlastedLands = false;
 
             //Kalimdor
             this.Teldrassil = false;
@@ -3884,8 +3881,6 @@ public class ProgressSettings : Settings
         if(needToChange.name.Contains("Stranglethorn"))
             CurrentSettings.StranglethornValley = true;
 
-        if(needToChange.name.Contains("Blasted"))
-            CurrentSettings.BlastedLands = true;
 
         if(needToChange.name.Contains("Teldrassil"))
             CurrentSettings.Teldrassil = true;
@@ -3989,7 +3984,6 @@ public class ProgressSettings : Settings
             CurrentSettings.StranglethornValley = true;
 
         if(needToChange.Contains("Blasted"))
-            CurrentSettings.BlastedLands = true;
 
         if(needToChange.Contains("Teldrassil"))
             CurrentSettings.Teldrassil = true;
@@ -4207,7 +4201,6 @@ public class ProgressSettings : Settings
         public bool StranglethornValley { get; set; }
         public bool Ironforge { get; set; }
         public bool BurningSteppes { get; set; }
-        public bool BlastedLands { get; set; }
         public bool SearingGorge { get; set; }
         public bool LochModan { get; set; }
         public bool Wetlands { get; set; }
@@ -4452,7 +4445,6 @@ public class Darnassus
             this.Westfall = false;
             this.Duskwood = false;
             this.StranglethornValley = false;
-            this.BlastedLands = false;
 
             //Kalimdor
             this.Teldrassil = false;
@@ -4522,8 +4514,6 @@ public class Darnassus
         if(needToChange.name.Contains("Stranglethorn"))
             CurrentSettings.StranglethornValley = true;
 
-        if(needToChange.name.Contains("Blasted"))
-            CurrentSettings.BlastedLands = true;
 
         if(needToChange.name.Contains("Teldrassil"))
             CurrentSettings.Teldrassil = true;
@@ -4619,7 +4609,6 @@ public class Darnassus
         public bool StranglethornValley { get; set; }
         public bool Ironforge { get; set; }
         public bool BurningSteppes { get; set; }
-        public bool BlastedLands { get; set; }
         public bool SearingGorge { get; set; }
         public bool LochModan { get; set; }
         public bool Wetlands { get; set; }

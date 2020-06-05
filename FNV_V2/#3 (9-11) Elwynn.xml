@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <QuestsSorted>
-    <QuestsSorted Action="RunCode" NameClass="FNVQuesterAuthSettings.Load();&#xD;&#xA;        if (FNVQuesterAuthSettings.CurrentSetting.TransactionId == null)&#xD;&#xA;        {&#xD;&#xA;            FNVQuesterAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        FNVQuesterAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(FNVQuesterAuthSettings.CurrentSetting.TransactionId, &quot;e8b609dcf76e&quot;); &#xD;&#xA;        ControlAuthentication.SetControl(5);&#xD;&#xA;&#xD;&#xA;ProgressSettings.Initialize();&#xD;&#xA;wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = ProgressSettings.CurrentSettings.elwynn - 1;&#xD;&#xA;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Loading current Quester step &quot; + (ProgressSettings.CurrentSettings.elwynn));&#xD;&#xA;&#xD;&#xA;Thread p = new Thread(() =&gt;&#xD;&#xA;{    &#xD;&#xA;ProgressSettings.inProgress = true;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Progress saver initialized&quot;);&#xD;&#xA; &#xD;&#xA; while(robotManager.Products.Products.IsStarted)&#xD;&#xA; {&#xD;&#xA;if(!ProgressSettings.inProgress)&#xD;&#xA;{&#xD;&#xA;ProgressSettings.Dispose();&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Progress saver disposed&quot;);&#xD;&#xA;break;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  if (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause)&#xD;&#xA;  {&#xD;&#xA; if(ProgressSettings.CurrentSettings.elwynn &lt; wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep)&#xD;&#xA;{&#xD;&#xA;ProgressSettings.CurrentSettings.elwynn = wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep;&#xD;&#xA;ProgressSettings.CurrentSettings.Save();&#xD;&#xA;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  Thread.Sleep(1000);&#xD;&#xA; }&#xD;&#xA;&#xD;&#xA;});&#xD;&#xA;&#xD;&#xA;p.Start();&#xD;&#xA;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;&#xD;&#xA;&#xD;&#xA;Thread t = new Thread(() =&gt;&#xD;&#xA;{&#xD;&#xA;&#xD;&#xA; while (robotManager.Products.Products.IsStarted)&#xD;&#xA; {&#xD;&#xA;Logging.Write(&quot;Bags in process&quot;);&#xD;&#xA;  if (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause)&#xD;&#xA;  {&#xD;&#xA;     if(bags.canEquip())&#xD;&#xA;{&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(5571) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(5571);&#xD;&#xA;//Small Black Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(828) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(828);&#xD;&#xA;//Small Blue Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(4496) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(4496);&#xD;&#xA;//Small Brown Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(5572) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(5572);&#xD;&#xA;//Small Green Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(805) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(805);&#xD;&#xA;//Small Red Pouch&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;break;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  }&#xD;&#xA;  Thread.Sleep(5000);&#xD;&#xA; }&#xD;&#xA;});&#xD;&#xA;if(bags.canEquip())&#xD;&#xA;t.Start();&#xD;&#xA;&#xD;&#xA;NpcDB.AcceptOnlyProfileNpc = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;&#xD;&#xA;QuesterSettings.SettingsEasternKingdoms();&#xD;&#xA;wManager.Wow.Forms.UserControlTabGeneralSettings.ReloadGeneralSettings();" />
+    <QuestsSorted Action="RunCode" NameClass="FNVQuesterAuthSettings.Load();&#xD;&#xA;        if (false)&#xD;&#xA;        {&#xD;&#xA;            FNVQuesterAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        FNVQuesterAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(FNVQuesterAuthSettings.CurrentSetting.TransactionId, &quot;e8b609dcf76e&quot;); &#xD;&#xA;        ControlAuthentication.SetControl(5);&#xD;&#xA;&#xD;&#xA;ProgressSettings.Initialize();&#xD;&#xA;wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = ProgressSettings.CurrentSettings.elwynn - 1;&#xD;&#xA;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Loading current Quester step &quot; + (ProgressSettings.CurrentSettings.elwynn));&#xD;&#xA;&#xD;&#xA;Thread p = new Thread(() =&gt;&#xD;&#xA;{    &#xD;&#xA;ProgressSettings.inProgress = true;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Progress saver initialized&quot;);&#xD;&#xA; &#xD;&#xA; while(robotManager.Products.Products.IsStarted)&#xD;&#xA; {&#xD;&#xA;if(!ProgressSettings.inProgress)&#xD;&#xA;{&#xD;&#xA;ProgressSettings.Dispose();&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Progress saver disposed&quot;);&#xD;&#xA;break;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  if (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause)&#xD;&#xA;  {&#xD;&#xA; if(ProgressSettings.CurrentSettings.elwynn &lt; wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep)&#xD;&#xA;{&#xD;&#xA;ProgressSettings.CurrentSettings.elwynn = wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep;&#xD;&#xA;ProgressSettings.CurrentSettings.Save();&#xD;&#xA;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  Thread.Sleep(1000);&#xD;&#xA; }&#xD;&#xA;&#xD;&#xA;});&#xD;&#xA;&#xD;&#xA;p.Start();&#xD;&#xA;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;&#xD;&#xA;&#xD;&#xA;Thread t = new Thread(() =&gt;&#xD;&#xA;{&#xD;&#xA;&#xD;&#xA; while (robotManager.Products.Products.IsStarted)&#xD;&#xA; {&#xD;&#xA;Logging.Write(&quot;Bags in process&quot;);&#xD;&#xA;  if (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause)&#xD;&#xA;  {&#xD;&#xA;     if(bags.canEquip())&#xD;&#xA;{&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(5571) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(5571);&#xD;&#xA;//Small Black Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(828) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(828);&#xD;&#xA;//Small Blue Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(4496) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(4496);&#xD;&#xA;//Small Brown Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(5572) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(5572);&#xD;&#xA;//Small Green Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(805) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(805);&#xD;&#xA;//Small Red Pouch&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;break;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  }&#xD;&#xA;  Thread.Sleep(5000);&#xD;&#xA; }&#xD;&#xA;});&#xD;&#xA;if(bags.canEquip())&#xD;&#xA;t.Start();&#xD;&#xA;&#xD;&#xA;NpcDB.AcceptOnlyProfileNpc = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;&#xD;&#xA;QuesterSettings.SettingsEasternKingdoms();&#xD;&#xA;wManager.Wow.Forms.UserControlTabGeneralSettings.ReloadGeneralSettings();" />
     <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Forms.UserControlTabGeneralSettings.ReloadGeneralSettings();" />
     <QuestsSorted Action="While" NameClass="!ObjectManager.Pet.IsValid &amp;&amp; ObjectManager.Me.WowClass == WoWClass.Hunter &amp;&amp; !Quest.GetQuestCompleted(85)" />
     <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = false;&#xD;&#xA;&#xD;&#xA;wManager.Wow.Bot.Tasks.GoToTask.ToPosition(new Vector3(-9591f, 30f, 60f));&#xD;&#xA;&#xD;&#xA;wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-9596f, 56.2f, 61f), 113);&#xD;&#xA;&#xD;&#xA;SpellManager.CastSpellByNameLUA(&quot;Tame Beast&quot;);" />
@@ -8609,8 +8609,6 @@ public class FlightMaster
         FMListe.Add(SearingGorge);
         FlightMasterDB BurningSteppes = new FlightMasterDB("Burning Steppes", 2299, new Vector3(-8365.1f, -2758.5f, 185.6f), false);
         FMListe.Add(BurningSteppes);
-        FlightMasterDB BlastedLands = new FlightMasterDB("Blasted Lands", 8609, new Vector3(-11110.2f, -3437.1f, 79.2f), false);
-        FMListe.Add(BlastedLands);
         FlightMasterDB Azshara = new FlightMasterDB("Azshara", 12577, new Vector3(2718.2f, -3880.8f, 101.4f), true);
         FMListe.Add(Azshara);
         FlightMasterDB Felwood = new FlightMasterDB("Felwood", 12578, new Vector3(6204.2f, -1951.4f, 571.3f), true);
@@ -10039,7 +10037,6 @@ public class ProgressSettings : Settings
             this.Westfall = false;
             this.Duskwood = false;
             this.StranglethornValley = false;
-            this.BlastedLands = false;
 
             //Kalimdor
             this.Teldrassil = false;
@@ -10109,8 +10106,6 @@ public class ProgressSettings : Settings
         if(needToChange.name.Contains("Stranglethorn"))
             CurrentSettings.StranglethornValley = true;
 
-        if(needToChange.name.Contains("Blasted"))
-            CurrentSettings.BlastedLands = true;
 
         if(needToChange.name.Contains("Teldrassil"))
             CurrentSettings.Teldrassil = true;
@@ -10214,7 +10209,6 @@ public class ProgressSettings : Settings
             CurrentSettings.StranglethornValley = true;
 
         if(needToChange.Contains("Blasted"))
-            CurrentSettings.BlastedLands = true;
 
         if(needToChange.Contains("Teldrassil"))
             CurrentSettings.Teldrassil = true;
@@ -10432,7 +10426,6 @@ public class ProgressSettings : Settings
         public bool StranglethornValley { get; set; }
         public bool Ironforge { get; set; }
         public bool BurningSteppes { get; set; }
-        public bool BlastedLands { get; set; }
         public bool SearingGorge { get; set; }
         public bool LochModan { get; set; }
         public bool Wetlands { get; set; }
@@ -10677,7 +10670,6 @@ public class Darnassus
             this.Westfall = false;
             this.Duskwood = false;
             this.StranglethornValley = false;
-            this.BlastedLands = false;
 
             //Kalimdor
             this.Teldrassil = false;
@@ -10747,8 +10739,6 @@ public class Darnassus
         if(needToChange.name.Contains("Stranglethorn"))
             CurrentSettings.StranglethornValley = true;
 
-        if(needToChange.name.Contains("Blasted"))
-            CurrentSettings.BlastedLands = true;
 
         if(needToChange.name.Contains("Teldrassil"))
             CurrentSettings.Teldrassil = true;
@@ -10844,7 +10834,6 @@ public class Darnassus
         public bool StranglethornValley { get; set; }
         public bool Ironforge { get; set; }
         public bool BurningSteppes { get; set; }
-        public bool BlastedLands { get; set; }
         public bool SearingGorge { get; set; }
         public bool LochModan { get; set; }
         public bool Wetlands { get; set; }

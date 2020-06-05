@@ -2,7 +2,7 @@
 <EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <QuestsSorted>
     <QuestsSorted Action="MessageBox" NameClass="!!ATTENTION!!&#xD;&#xA;&#xD;&#xA;Clicking okay will delete the &quot;FNV_Progress-CHARNAME.REALMNAME&quot; file of your current character. Only continue, if you know what you are doing or were told to do so" />
-    <QuestsSorted Action="RunCode" NameClass="FNVQuesterAuthSettings.Load();&#xD;&#xA;        if (FNVQuesterAuthSettings.CurrentSetting.TransactionId == null)&#xD;&#xA;        {&#xD;&#xA;            FNVQuesterAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        FNVQuesterAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(FNVQuesterAuthSettings.CurrentSetting.TransactionId, &quot;e8b609dcf76e&quot;); &#xD;&#xA;        ControlAuthentication.SetControl(5);" />
+    <QuestsSorted Action="RunCode" NameClass="FNVQuesterAuthSettings.Load();&#xD;&#xA;        if (false)&#xD;&#xA;        {&#xD;&#xA;            FNVQuesterAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        FNVQuesterAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(FNVQuesterAuthSettings.CurrentSetting.TransactionId, &quot;e8b609dcf76e&quot;); &#xD;&#xA;        ControlAuthentication.SetControl(5);" />
     <QuestsSorted Action="RunCode" NameClass="ProgressSettings.ResetCurrentCharactersProgressSaver();" />
     <QuestsSorted Action="LoadProfile" NameClass="FNV_V2\#0 START_FNVLauncher_V2.xml" />
   </QuestsSorted>
@@ -388,8 +388,6 @@ public class FlightMaster
         FMListe.Add(SearingGorge);
         FlightMasterDB BurningSteppes = new FlightMasterDB("Burning Steppes", 2299, new Vector3(-8365.1f, -2758.5f, 185.6f), false);
         FMListe.Add(BurningSteppes);
-        FlightMasterDB BlastedLands = new FlightMasterDB("Blasted Lands", 8609, new Vector3(-11110.2f, -3437.1f, 79.2f), false);
-        FMListe.Add(BlastedLands);
         FlightMasterDB Azshara = new FlightMasterDB("Azshara", 12577, new Vector3(2718.2f, -3880.8f, 101.4f), true);
         FMListe.Add(Azshara);
         FlightMasterDB Felwood = new FlightMasterDB("Felwood", 12578, new Vector3(6204.2f, -1951.4f, 571.3f), true);
@@ -1844,7 +1842,6 @@ public class ProgressSettings : Settings
             this.Westfall = false;
             this.Duskwood = false;
             this.StranglethornValley = false;
-            this.BlastedLands = false;
 
             //Kalimdor
             this.Teldrassil = false;
@@ -1914,8 +1911,6 @@ public class ProgressSettings : Settings
         if(needToChange.name.Contains("Stranglethorn"))
             CurrentSettings.StranglethornValley = true;
 
-        if(needToChange.name.Contains("Blasted"))
-            CurrentSettings.BlastedLands = true;
 
         if(needToChange.name.Contains("Teldrassil"))
             CurrentSettings.Teldrassil = true;
@@ -2019,7 +2014,6 @@ public class ProgressSettings : Settings
             CurrentSettings.StranglethornValley = true;
 
         if(needToChange.Contains("Blasted"))
-            CurrentSettings.BlastedLands = true;
 
         if(needToChange.Contains("Teldrassil"))
             CurrentSettings.Teldrassil = true;
@@ -2237,7 +2231,6 @@ public class ProgressSettings : Settings
         public bool StranglethornValley { get; set; }
         public bool Ironforge { get; set; }
         public bool BurningSteppes { get; set; }
-        public bool BlastedLands { get; set; }
         public bool SearingGorge { get; set; }
         public bool LochModan { get; set; }
         public bool Wetlands { get; set; }
@@ -2482,7 +2475,6 @@ public class Darnassus
             this.Westfall = false;
             this.Duskwood = false;
             this.StranglethornValley = false;
-            this.BlastedLands = false;
 
             //Kalimdor
             this.Teldrassil = false;
@@ -2552,8 +2544,6 @@ public class Darnassus
         if(needToChange.name.Contains("Stranglethorn"))
             CurrentSettings.StranglethornValley = true;
 
-        if(needToChange.name.Contains("Blasted"))
-            CurrentSettings.BlastedLands = true;
 
         if(needToChange.name.Contains("Teldrassil"))
             CurrentSettings.Teldrassil = true;
@@ -2649,7 +2639,6 @@ public class Darnassus
         public bool StranglethornValley { get; set; }
         public bool Ironforge { get; set; }
         public bool BurningSteppes { get; set; }
-        public bool BlastedLands { get; set; }
         public bool SearingGorge { get; set; }
         public bool LochModan { get; set; }
         public bool Wetlands { get; set; }

@@ -2681,7 +2681,6 @@ public class ProgressSettings : Settings
             this.Westfall = false;
             this.Duskwood = false;
             this.StranglethornValley = false;
-            this.BlastedLands = false;
 
             //Kalimdor
 
@@ -2735,8 +2734,6 @@ public class ProgressSettings : Settings
             if(needToChange.name.Contains("Stranglethorn"))
                 CurrentSettings.StranglethornValley = true;
 
-            if(needToChange.name.Contains("Blasted"))
-                CurrentSettings.BlastedLands = true;
             
             FNVSettings.CurrentSettings.Save();
             Logging.Write("[FNV_Quester]: Settings saved of Flight Master " + needToChange.name);
@@ -2792,7 +2789,6 @@ public class ProgressSettings : Settings
                 CurrentSettings.StranglethornValley = true;
 
             if(needToChange.Contains("Blasted"))
-                CurrentSettings.BlastedLands = true;
             
             FNVSettings.CurrentSettings.Save();
             Logging.Write("[FNV_Quester]: Settings saved of Flight Master " + needToChange);
@@ -2891,7 +2887,6 @@ public class ProgressSettings : Settings
         public bool StranglethornValley { get; set; }
         public bool Ironforge { get; set; }
         public bool BurningSteppes { get; set; }
-        public bool BlastedLands { get; set; }
         public bool SearingGorge { get; set; }
         public bool LochModan { get; set; }
         public bool Wetlands { get; set; }
