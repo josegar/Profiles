@@ -9456,7 +9456,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.AttackElite = false;
         wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;
         wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
         wManager.wManagerSetting.CurrentSetting.IgnoreFightWhenInMove = false;
 
         wManager.wManagerSetting.CurrentSetting.Repair = true;
@@ -9493,7 +9493,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.DetectNodesStuck = true;
         wManager.wManagerSetting.CurrentSetting.DontStartFighting = false;
         wManager.wManagerSetting.CurrentSetting.FlightMasterDiscoverRange = 50;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
         wManager.wManagerSetting.CurrentSetting.HarvestAvoidPlayersRadius = 1;
         wManager.wManagerSetting.CurrentSetting.HarvestDuringLongMove = false;
         wManager.wManagerSetting.CurrentSetting.HarvestTimber = false;
@@ -9544,7 +9544,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.AttackElite = false;
         wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;
         wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
         wManager.wManagerSetting.CurrentSetting.IgnoreFightWhenInMove = false;
 
         wManager.wManagerSetting.CurrentSetting.Repair = true;
@@ -9581,7 +9581,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.DetectNodesStuck = true;
         wManager.wManagerSetting.CurrentSetting.DontStartFighting = false;
         wManager.wManagerSetting.CurrentSetting.FlightMasterDiscoverRange = 50;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
         wManager.wManagerSetting.CurrentSetting.HarvestAvoidPlayersRadius = 1;
         wManager.wManagerSetting.CurrentSetting.HarvestDuringLongMove = false;
         wManager.wManagerSetting.CurrentSetting.HarvestTimber = false;
