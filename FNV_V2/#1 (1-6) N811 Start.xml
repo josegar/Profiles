@@ -34,7 +34,7 @@
     <QuestsSorted Action="PickUp" NameClass="DolanaarDelivery" />
     <QuestsSorted Action="Pulse" NameClass="ROUTEShadowglenToDolanaar" />
     <QuestsSorted Action="TurnIn" NameClass="DolanaarDelivery" />
-    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;" />
     <QuestsSorted Action="Pulse" NameClass="ROUTEGoToDarnassus" />
     <QuestsSorted Action="RunCode" NameClass="abandonQuest.abandon(&quot;Encrypted Sigil&quot;);&#xD;&#xA;abandonQuest.abandon(&quot;Etched Sigil&quot;);&#xD;&#xA;abandonQuest.abandon(&quot;Hallowed Sigil&quot;);&#xD;&#xA;abandonQuest.abandon(&quot;Simple Sigil&quot;);&#xD;&#xA;abandonQuest.abandon(&quot;Verdant Sigil&quot;);" />
     <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Conditions.ForceIgnoreIsAttacked = false;" />
@@ -9538,7 +9538,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.AttackElite = false;
         wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;
         wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
         wManager.wManagerSetting.CurrentSetting.IgnoreFightWhenInMove = false;
 
         wManager.wManagerSetting.CurrentSetting.Repair = true;
@@ -9575,7 +9575,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.DetectNodesStuck = true;
         wManager.wManagerSetting.CurrentSetting.DontStartFighting = false;
         wManager.wManagerSetting.CurrentSetting.FlightMasterDiscoverRange = 50;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
         wManager.wManagerSetting.CurrentSetting.HarvestAvoidPlayersRadius = 1;
         wManager.wManagerSetting.CurrentSetting.HarvestDuringLongMove = false;
         wManager.wManagerSetting.CurrentSetting.HarvestTimber = false;
@@ -9626,7 +9626,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.AttackElite = false;
         wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;
         wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
         wManager.wManagerSetting.CurrentSetting.IgnoreFightWhenInMove = false;
 
         wManager.wManagerSetting.CurrentSetting.Repair = true;
@@ -9663,7 +9663,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.DetectNodesStuck = true;
         wManager.wManagerSetting.CurrentSetting.DontStartFighting = false;
         wManager.wManagerSetting.CurrentSetting.FlightMasterDiscoverRange = 50;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
         wManager.wManagerSetting.CurrentSetting.HarvestAvoidPlayersRadius = 1;
         wManager.wManagerSetting.CurrentSetting.HarvestDuringLongMove = false;
         wManager.wManagerSetting.CurrentSetting.HarvestTimber = false;

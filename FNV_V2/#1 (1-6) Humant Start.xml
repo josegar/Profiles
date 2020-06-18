@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <QuestsSorted>
     <QuestsSorted Action="RunCode" NameClass="FNVQuesterAuthSettings.Load();&#xD;&#xA;        if (false)&#xD;&#xA;        {&#xD;&#xA;            FNVQuesterAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        FNVQuesterAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(FNVQuesterAuthSettings.CurrentSetting.TransactionId, &quot;e8b609dcf76e&quot;); &#xD;&#xA;        ControlAuthentication.SetControl(5);&#xD;&#xA;&#xD;&#xA;ProgressSettings.Initialize();&#xD;&#xA;wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = ProgressSettings.CurrentSettings.humanStart - 1;&#xD;&#xA;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Loading current Quester step &quot; + (ProgressSettings.CurrentSettings.humanStart));&#xD;&#xA;&#xD;&#xA;Thread p = new Thread(() =&gt;&#xD;&#xA;{    &#xD;&#xA;ProgressSettings.inProgress = true;&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Progress saver initialized&quot;);&#xD;&#xA; &#xD;&#xA; while(robotManager.Products.Products.IsStarted)&#xD;&#xA; {&#xD;&#xA;if(!ProgressSettings.inProgress)&#xD;&#xA;{&#xD;&#xA;ProgressSettings.Dispose();&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Progress saver disposed&quot;);&#xD;&#xA;break;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  if (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause)&#xD;&#xA;  {&#xD;&#xA; if(ProgressSettings.CurrentSettings.humanStart &lt; wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep)&#xD;&#xA;{&#xD;&#xA;ProgressSettings.CurrentSettings.humanStart = wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep;&#xD;&#xA;ProgressSettings.CurrentSettings.Save();&#xD;&#xA;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  Thread.Sleep(1000);&#xD;&#xA; }&#xD;&#xA;&#xD;&#xA;});&#xD;&#xA;&#xD;&#xA;p.Start();&#xD;&#xA;&#xD;&#xA;Thread t = new Thread(() =&gt;&#xD;&#xA;{&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Starting auto equip of bags&quot;);&#xD;&#xA;bags.bagsStarted = true;&#xD;&#xA; while (robotManager.Products.Products.IsStarted)&#xD;&#xA; {&#xD;&#xA;&#xD;&#xA;  if (Conditions.InGameAndConnectedAndAliveAndProductStartedNotInPause &amp;&amp; bags.bagsStarted)&#xD;&#xA;  {&#xD;&#xA;     if(bags.canEquip())&#xD;&#xA;{&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(5571) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(5571);&#xD;&#xA;//Small Black Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(828) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(828);&#xD;&#xA;//Small Blue Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(4496) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(4496);&#xD;&#xA;//Small Brown Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(5572) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(5572);&#xD;&#xA;//Small Green Pouch&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(ItemsManager.GetItemCountById(805) &gt; 0)&#xD;&#xA;ItemsManager.UseItem(805);&#xD;&#xA;//Small Red Pouch&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;Logging.Write(&quot;[FNV_Quester]: Stopping auto equip of bags&quot;);&#xD;&#xA;break;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;  }&#xD;&#xA;  Thread.Sleep(5000);&#xD;&#xA; }&#xD;&#xA;});&#xD;&#xA;if(bags.canEquip())&#xD;&#xA;t.Start();&#xD;&#xA;&#xD;&#xA;NpcDB.AcceptOnlyProfileNpc = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;&#xD;&#xA;QuesterSettings.SettingsEasternKingdoms();&#xD;&#xA;wManager.Wow.Forms.UserControlTabGeneralSettings.ReloadGeneralSettings();" />
@@ -7,39 +7,50 @@
     <QuestsSorted Action="PickUp" NameClass="AThreatWithin" />
     <QuestsSorted Action="TurnIn" NameClass="AThreatWithin" />
     <QuestsSorted Action="PickUp" NameClass="KoboldCampCleanup" />
-    <QuestsSorted Action="PickUp" NameClass="EaganPeltskinner" />
-    <QuestsSorted Action="TurnIn" NameClass="EaganPeltskinner" />
     <QuestsSorted Action="Pulse" NameClass="KoboldCampCleanup" />
-    <QuestsSorted Action="PickUp" NameClass="WolvesAcrosstheBorder" />
-    <QuestsSorted Action="Pulse" NameClass="WolvesAcrosstheBorder" />
-    <QuestsSorted Action="TurnIn" NameClass="WolvesAcrosstheBorder" />
     <QuestsSorted Action="TurnIn" NameClass="KoboldCampCleanup" />
     <QuestsSorted Action="PickUp" NameClass="InvestigateEchoRidge" />
-    <QuestsSorted Action="PickUp" NameClass="BrotherhoodofThieves" />
     <QuestsSorted Action="Pulse" NameClass="InvestigateEchoRidge" />
-    <QuestsSorted Action="Pulse" NameClass="BrotherhoodofThieves" />
     <QuestsSorted Action="TurnIn" NameClass="InvestigateEchoRidge" />
-    <QuestsSorted Action="TurnIn" NameClass="BrotherhoodofThieves" />
     <QuestsSorted Action="PickUp" NameClass="SkirmishatEchoRidge" />
-    <QuestsSorted Action="PickUp" NameClass="MillyOsworth" />
-    <QuestsSorted Action="PickUp" NameClass="BountyonGarrickPadfoot" />
-    <QuestsSorted Action="TurnIn" NameClass="MillyOsworth" />
-    <QuestsSorted Action="PickUp" NameClass="MillysHarvest" />
+    <QuestsSorted Action="PickUp" NameClass="EaganPeltskinner" />
+    <QuestsSorted Action="PickUp" NameClass="BrotherhoodofThieves" />
+    <QuestsSorted Action="TurnIn" NameClass="EaganPeltskinner" />
+    <QuestsSorted Action="PickUp" NameClass="WolvesAcrosstheBorder" />
+    <QuestsSorted Action="Pulse" NameClass="WolvesAcrosstheBorder" />
     <QuestsSorted Action="Pulse" NameClass="SkirmishatEchoRidge" />
-    <QuestsSorted Action="Pulse" NameClass="MillysHarvest" />
-    <QuestsSorted Action="Pulse" NameClass="BountyonGarrickPadfoot" />
+    <QuestsSorted Action="TurnIn" NameClass="WolvesAcrosstheBorder" />
     <QuestsSorted Action="TurnIn" NameClass="SkirmishatEchoRidge" />
     <QuestsSorted Action="PickUp" NameClass="ReporttoGoldshire" />
-    <QuestsSorted Action="TurnIn" NameClass="BountyonGarrickPadfoot" />
+    <QuestsSorted Action="Pulse" NameClass="BrotherhoodofThieves" />
+    <QuestsSorted Action="TurnIn" NameClass="BrotherhoodofThieves" />
+    <QuestsSorted Action="PickUp" NameClass="WARLOCKTaintedLetter" />
+    <QuestsSorted Action="TurnIn" NameClass="WARLOCKTaintedLetter" />
+    <QuestsSorted Action="PickUp" NameClass="WARLOCKTheStolenTome" />
+    <QuestsSorted Action="Pulse" NameClass="WARLOCKTheStolenTome" />
+    <QuestsSorted Action="TurnIn" NameClass="WARLOCKTheStolenTome" />
+    <QuestsSorted Action="PickUp" NameClass="BountyonGarrickPadfoot" />
+    <QuestsSorted Action="PickUp" NameClass="MillyOsworth" />
+    <QuestsSorted Action="TurnIn" NameClass="MillyOsworth" />
+    <QuestsSorted Action="PickUp" NameClass="MillysHarvest" />
+    <QuestsSorted Action="Pulse" NameClass="MillysHarvest" />
     <QuestsSorted Action="TurnIn" NameClass="MillysHarvest" />
     <QuestsSorted Action="PickUp" NameClass="GrapeManifest" />
     <QuestsSorted Action="Pulse" NameClass="ROUTEMillyGrapeManifestPath" />
     <QuestsSorted Action="TurnIn" NameClass="GrapeManifest" />
     <QuestsSorted Action="Pulse" NameClass="ROUTEGrapeManifestPathOut" />
+    <QuestsSorted Action="Pulse" NameClass="BountyonGarrickPadfoot" />
+    <QuestsSorted Action="TurnIn" NameClass="BountyonGarrickPadfoot" />
     <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Small Brown Pouch&quot;);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Small Red Pouch&quot;);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Small Blue Pouch&quot;);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Small Green Pouch&quot;);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Small Black Pouch&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="Grindto6" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Mage || ObjectManager.Me.WowClass == WoWClass.Warlock || ObjectManager.Me.WowClass == WoWClass.Warrior || ObjectManager.Me.WowClass == WoWClass.Rogue || ObjectManager.Me.WowClass == WoWClass.Hunter" />
+    <QuestsSorted Action="WriteLog" NameClass="[FNV_Quester]: Going to grind to level 8 as Warrior / Rogue / Warlock / Mage" />
+    <QuestsSorted Action="Pulse" NameClass="GRINDGrindTo8WLMGWARG" />
+    <QuestsSorted Action="EndIf" NameClass="" />
     <QuestsSorted Action="PickUp" NameClass="RestandRelaxation" />
     <QuestsSorted Action="TurnIn" NameClass="RestandRelaxation" />
     <QuestsSorted Action="TurnIn" NameClass="ReporttoGoldshire" />
+    <QuestsSorted Action="EndIf" NameClass="" />
     <QuestsSorted Action="Pulse" NameClass="ROUTEGoldshireToStormwindTram" />
     <QuestsSorted Action="RunCode" NameClass="ProgressSettings.Dispose();&#xD;&#xA;ProgressSettings.inProgress = false;&#xD;&#xA;&#xD;&#xA;Tram.takeTramStormwind();&#xD;&#xA;&#xD;&#xA;bags.bagsStarted = false;&#xD;&#xA;&#xD;&#xA;FNVSettings.Initialize();&#xD;&#xA;FNVSettings.CurrentSettings.humanStart = true;&#xD;&#xA;FNVSettings.Dispose();&#xD;&#xA;" />
     <QuestsSorted Action="LoadProfile" NameClass="FNV_V2\#0 START_FNVLauncher_V2.xml" />
@@ -671,7 +682,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Repair</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -682,7 +692,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Vendor</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -693,7 +702,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>WarlockTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -704,7 +712,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>WarriorTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -715,7 +722,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>PaladinTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -726,7 +732,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>PriestTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -737,7 +742,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>MageTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -748,7 +752,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>RogueTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -759,7 +762,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Repair</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -770,7 +772,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>PaladinTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -781,7 +782,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>WarriorTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -792,7 +792,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Vendor</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -803,7 +802,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>MageTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -814,7 +812,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>PriestTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -825,7 +822,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>RogueTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -836,7 +832,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>WarlockTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -847,7 +842,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Repair</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -858,7 +852,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Repair</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -869,7 +862,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Vendor</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -880,7 +872,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Repair</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -891,7 +882,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Vendor</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -902,7 +892,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Vendor</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -913,7 +902,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Repair</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -924,7 +912,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>RogueTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -935,7 +922,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>WarriorTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -946,7 +932,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>HunterTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -957,7 +942,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>PriestTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -968,7 +952,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>PaladinTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -979,7 +962,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>DruidTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -990,7 +972,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Repair</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -1001,7 +982,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Repair</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -1012,7 +992,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Repair</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -1023,7 +1002,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>Vendor</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
     <Npc>
@@ -1034,7 +1012,6 @@
       <Active>true</Active>
       <Faction>Neutral</Faction>
       <Type>HunterTrainer</Type>
-      <VendorItemClass>Food</VendorItemClass>
       <ContinentId>Azeroth</ContinentId>
     </Npc>
   </Npc>
@@ -1062,7 +1039,6 @@
         <EntryIdObjects>
           <int>176793</int>
         </EntryIdObjects>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -1203,7 +1179,6 @@
           <int>1194</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -1251,7 +1226,6 @@
           <int>1192</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -1414,7 +1388,6 @@
       <QuestClass xsi:type="GathererEasyQuestClass">
         <HotSpots />
         <EntryIdObjects />
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -1453,7 +1426,6 @@
           <int>103</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -1504,7 +1476,6 @@
           <int>46</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -1551,7 +1522,6 @@
           <int>38</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -1722,7 +1692,6 @@
           <int>285</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -1771,7 +1740,6 @@
           <int>1693</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -1875,7 +1843,6 @@
         <EntryIdObjects>
           <int>271</int>
         </EntryIdObjects>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -1987,7 +1954,6 @@
           <int>1393</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2033,7 +1999,6 @@
           <int>475</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2072,7 +2037,6 @@
           <int>327</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2126,7 +2090,6 @@
           <int>157</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2210,7 +2173,6 @@
           <int>115</int>
         </EntryTarget>
         <IsGrinderNotQuest>true</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2260,7 +2222,6 @@
           <int>116</int>
         </EntryTarget>
         <IsGrinderNotQuest>true</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2300,7 +2261,6 @@
           <int>94</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2341,7 +2301,6 @@
           <int>114</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2390,7 +2349,6 @@
           <int>36</int>
         </EntryTarget>
         <IsGrinderNotQuest>true</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2432,7 +2390,6 @@
           <int>257</int>
         </EntryTarget>
         <IsGrinderNotQuest>true</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2472,7 +2429,6 @@
           <int>456</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2626,7 +2582,6 @@
           <int>1199</int>
         </EntryTarget>
         <IsGrinderNotQuest>true</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2745,7 +2700,6 @@
           <int>1162</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2791,7 +2745,6 @@
           <int>1166</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2835,7 +2788,6 @@
           <int>1197</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2877,7 +2829,6 @@
           <int>257</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2955,7 +2906,6 @@
           <int>36</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -2996,7 +2946,6 @@
           <int>6</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3044,7 +2993,6 @@
           <int>40</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3113,7 +3061,6 @@
           <int>473</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3188,7 +3135,6 @@
         <EntryIdObjects>
           <int>161557</int>
         </EntryIdObjects>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3300,7 +3246,6 @@
           <int>123</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3343,7 +3288,6 @@
           <int>113</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3389,7 +3333,6 @@
         <EntryIdObjects>
           <int>2724</int>
         </EntryIdObjects>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3458,7 +3401,6 @@
           <int>330</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3507,7 +3449,6 @@
           <int>822</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3588,7 +3529,6 @@
           <int>1172</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3634,7 +3574,6 @@
           <int>95</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3685,7 +3624,6 @@
           <int>474</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -3887,7 +3825,6 @@
           <int>478</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -6215,7 +6152,6 @@
           <int>80</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -6316,7 +6252,6 @@
           <int>127</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -6357,7 +6292,6 @@
           <int>126</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -6399,7 +6333,6 @@
           <int>171</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -6446,7 +6379,6 @@
           <int>391</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -6646,7 +6578,6 @@
         <EntryIdObjects>
           <int>290</int>
         </EntryIdObjects>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -6767,7 +6698,6 @@
           <int>114</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -6810,7 +6740,6 @@
           <int>504</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>15</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -6853,7 +6782,6 @@
           <int>95</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>15</ObjectiveCount2>
@@ -6895,7 +6823,6 @@
           <int>589</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -6937,7 +6864,6 @@
           <int>121</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -6972,7 +6898,6 @@
         <HotSpots />
         <EntryTarget />
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -7021,7 +6946,6 @@
           <int>1195</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -7484,7 +7408,6 @@
           <int>881</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -7582,7 +7505,6 @@
         <EntryIdObjects>
           <int>83763</int>
         </EntryIdObjects>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -7688,7 +7610,6 @@
           <int>1109</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -7732,7 +7653,6 @@
           <int>126</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -7776,7 +7696,6 @@
           <int>157</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -7818,7 +7737,6 @@
           <int>36</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -7860,7 +7778,6 @@
           <int>299</int>
         </EntryTarget>
         <IsGrinderNotQuest>false</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -8074,7 +7991,6 @@
           <int>38</int>
         </EntryTarget>
         <IsGrinderNotQuest>true</IsGrinderNotQuest>
-        <IsHotspots>true</IsHotspots>
       </QuestClass>
       <ObjectiveCount1>0</ObjectiveCount1>
       <ObjectiveCount2>0</ObjectiveCount2>
@@ -12041,7 +11957,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.AttackElite = false;
         wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;
         wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
         wManager.wManagerSetting.CurrentSetting.IgnoreFightWhenInMove = false;
 
         wManager.wManagerSetting.CurrentSetting.Repair = true;
@@ -12078,7 +11994,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.DetectNodesStuck = true;
         wManager.wManagerSetting.CurrentSetting.DontStartFighting = false;
         wManager.wManagerSetting.CurrentSetting.FlightMasterDiscoverRange = 50;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
         wManager.wManagerSetting.CurrentSetting.HarvestAvoidPlayersRadius = 1;
         wManager.wManagerSetting.CurrentSetting.HarvestDuringLongMove = false;
         wManager.wManagerSetting.CurrentSetting.HarvestTimber = false;
@@ -12129,7 +12045,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.AttackElite = false;
         wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = true;
         wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
         wManager.wManagerSetting.CurrentSetting.IgnoreFightWhenInMove = false;
 
         wManager.wManagerSetting.CurrentSetting.Repair = true;
@@ -12166,7 +12082,7 @@ public class QuesterSettings
         wManager.wManagerSetting.CurrentSetting.DetectNodesStuck = true;
         wManager.wManagerSetting.CurrentSetting.DontStartFighting = false;
         wManager.wManagerSetting.CurrentSetting.FlightMasterDiscoverRange = 50;
-        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = true;
+        wManager.wManagerSetting.CurrentSetting.FlightMasterTaxiUse = false;
         wManager.wManagerSetting.CurrentSetting.HarvestAvoidPlayersRadius = 1;
         wManager.wManagerSetting.CurrentSetting.HarvestDuringLongMove = false;
         wManager.wManagerSetting.CurrentSetting.HarvestTimber = false;
@@ -12603,5 +12519,299 @@ class test
   </BlacklistNpc>
   <BlacklistNpcType />
   <Blackspots>
+    <Blackspot X="-9400.668" Y="-276.856262" Z="63.9141273" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9302.823" Y="-282.947571" Z="71.1555" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9487.211" Y="-428.7091" Z="59.5034943" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9454.161" Y="-542.293335" Z="65.28041" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9443.997" Y="-974.8762" Z="55.5924454" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9283.556" Y="-1153.7533" Z="67.36875" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9247.3" Y="-1186.67883" Z="67.6049652" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9191.774" Y="-1229.66016" Z="73.36408" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9290.167" Y="-1217.67981" Z="69.42581" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9130.468" Y="-1249.331" Z="74.67193" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9814.855" Y="-1257.15979" Z="36.0029831" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9777.362" Y="-1223.94727" Z="41.36344" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9927.891" Y="-1142.45178" Z="22.99344" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9950.372" Y="-1091.38953" Z="19.933527" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9951.173" Y="-139.748535" Z="24.6173725" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9869.24" Y="-223.172913" Z="35.6358833" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9935.643" Y="577.1905" Z="37.01147" Radius="15" Continent="None" Comment="" />
+    <Blackspot X="-9984.617" Y="570.159668" Z="37.66337" Radius="15" Continent="None" Comment="" />
+    <Blackspot X="-10003.6113" Y="660.169" Z="36.0697365" Radius="15" Continent="None" Comment="" />
+    <Blackspot X="-9948.02051" Y="618.010132" Z="37.20774" Radius="15" Continent="None" Comment="" />
+    <Blackspot X="-10068.0723" Y="629.9669" Z="39.265564" Radius="15" Continent="None" Comment="" />
+    <Blackspot X="-10110.917" Y="689.8235" Z="31.89491" Radius="15" Continent="None" Comment="" />
+    <Blackspot X="-9988.788" Y="1117.3031" Z="43.0418472" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-10225.9248" Y="1025.46082" Z="34.13376" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-10181.4717" Y="1296.59363" Z="36.3369" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9998.149" Y="1456.01233" Z="41.13863" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-9874.156" Y="1324.20728" Z="43.02086" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10493.8838" Y="1330.72693" Z="42.568718" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-10861.2949" Y="1160.89746" Z="37.85688" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-10821.7451" Y="1327.4917" Z="34.1663857" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-11033.6982" Y="1040.552" Z="36.8921471" Radius="35" Continent="None" Comment="" />
+    <Blackspot X="-11137.3809" Y="1043.30713" Z="34.03955" Radius="35" Continent="None" Comment="" />
+    <Blackspot X="-11047.3535" Y="893.335632" Z="36.022522" Radius="35" Continent="None" Comment="" />
+    <Blackspot X="-10969.4023" Y="1612.07324" Z="46.22219" Radius="45" Continent="None" Comment="" />
+    <Blackspot X="-11027.0625" Y="1508.25671" Z="44.1774063" Radius="15" Continent="None" Comment="" />
+    <Blackspot X="-11162.86" Y="1710.75977" Z="41.8065834" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-11325.12" Y="1723.14758" Z="37.0197945" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-11371.0059" Y="1795.34607" Z="8.57061" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-11391.8145" Y="1790.611" Z="8.196335" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-11083.2227" Y="2080.96851" Z="10.8990078" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-11012.2373" Y="2032.41028" Z="10.5550289" Radius="15" Continent="None" Comment="" />
+    <Blackspot X="-10995.4727" Y="1875.8147" Z="41.37383" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-11087.9912" Y="1918.33936" Z="33.27721" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-11019.4375" Y="1931.75867" Z="34.60039" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10925.08" Y="1996.88391" Z="34.54301" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10751.7627" Y="1955.927" Z="37.2422676" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10613.4521" Y="1948.68384" Z="37.6889954" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10556.2236" Y="1959.65686" Z="35.7116127" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10188.6709" Y="1920.32" Z="37.3117256" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10028.3281" Y="1817.73682" Z="37.5641" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9879.934" Y="1551.49146" Z="44.0305977" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9730.741" Y="1447.07471" Z="44.8250542" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9756.459" Y="1199.324" Z="40.9794159" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9705.703" Y="1040.93408" Z="35.63914" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9606.973" Y="1046.88049" Z="7.051983" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-9582.313" Y="1448.89221" Z="1.25406086" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-9588.846" Y="1513.04565" Z="-0.6915426" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-9686.142" Y="1524.56873" Z="13.6300163" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-9910.886" Y="1770.33057" Z="10.4312191" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-10143.3135" Y="1734.86768" Z="31.8468685" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-11242.6572" Y="1154.60669" Z="89.05129" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-10832.3633" Y="1767.48865" Z="36.957077" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-5784.05762" Y="-2926.02026" Z="364.023163" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-5825.356" Y="-2810.92871" Z="374.162781" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-5854.595" Y="-2844.91235" Z="365.3854" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-5874.107" Y="-2837.7876" Z="367.736969" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-5878.817" Y="-2862.59937" Z="366.237366" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-5893.212" Y="-2954.205" Z="367.091278" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-5957.33057" Y="-2892.55127" Z="370.625763" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-5791.62061" Y="-2969.3584" Z="375.562317" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-5539.94873" Y="-2723.88379" Z="366.874146" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-5284.20947" Y="-2703.989" Z="343.283752" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-5068.2" Y="-2712.34473" Z="318.9581" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-5038.97656" Y="-2681.357" Z="319.045929" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-4780.001" Y="-2974.64014" Z="322.7495" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-4789.533" Y="-3025.74536" Z="301.422363" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-5643.25146" Y="-3876.607" Z="329.8011" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-5665.2793" Y="-3950.49365" Z="319.25296" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-5728.58154" Y="-3910.29272" Z="322.147949" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-4980.099" Y="-3496.8396" Z="305.574951" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-5036.562" Y="-3338.81323" Z="299.818176" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-4871.69727" Y="-3324.97363" Z="305.327972" Radius="17" Continent="None" Comment="" />
+    <Blackspot X="-9710.08" Y="1964.83618" Z="-1.46797109" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-9742.713" Y="1916.63574" Z="-1.46797109" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-9698.766" Y="1997.54358" Z="-1.46797109" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-9674.9" Y="2043.36047" Z="-1.46797109" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-9649.288" Y="2093.21948" Z="-1.46797109" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-9615.908" Y="2158.2002" Z="-1.46797109" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-9593.316" Y="2202.17871" Z="-1.46797109" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-9574.781" Y="2238.2605" Z="-1.46797109" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-9555.232" Y="2276.31641" Z="-1.46797109" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-9537.345" Y="2311.138" Z="-1.46797109" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-9763.365" Y="1864.99512" Z="-1.43571675" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-10008.4766" Y="2027.67578" Z="-1.5147655" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-11141.1689" Y="2167.62817" Z="-1.43495047" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-11410.2549" Y="1822.52917" Z="-0.5874188" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-11115.7031" Y="2124.84155" Z="-1.50639117" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-11128.2363" Y="2080.06055" Z="-5.81826925" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-11161.0957" Y="1710.36426" Z="42.06198" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-11321.8037" Y="1719.94775" Z="36.9287529" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-11242.73" Y="1154.45374" Z="89.0518951" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-11031.5576" Y="1508.93738" Z="43.20239" Radius="35" Continent="None" Comment="" />
+    <Blackspot X="-10989.7383" Y="1486.44751" Z="43.7553" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-10832.2363" Y="1764.6781" Z="36.62481" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-10659.2227" Y="1732.71045" Z="39.5078773" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-10677.7705" Y="1755.34021" Z="39.2040749" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-10751.7266" Y="1661.011" Z="45.1787376" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-10795.3613" Y="2047.62732" Z="10.3144732" Radius="33" Continent="None" Comment="" />
+    <Blackspot X="-11130.4854" Y="2080.55225" Z="-5.47585869" Radius="33" Continent="None" Comment="" />
+    <Blackspot X="-11130.4854" Y="2080.55225" Z="-5.47585869" Radius="33" Continent="None" Comment="" />
+    <Blackspot X="-11130.207" Y="2081.78223" Z="-1.43697119" Radius="33" Continent="None" Comment="" />
+    <Blackspot X="-11107.9824" Y="2123.6145" Z="-3.05081749" Radius="33" Continent="None" Comment="" />
+    <Blackspot X="-11103.1621" Y="2119.37769" Z="-1.193317" Radius="33" Continent="None" Comment="" />
+    <Blackspot X="-10662.2061" Y="2042.786" Z="8.09337" Radius="33" Continent="None" Comment="" />
+    <Blackspot X="-10229.8184" Y="2006.21179" Z="12.5410633" Radius="33" Continent="None" Comment="" />
+    <Blackspot X="-10019.85" Y="1884.21338" Z="13.0423021" Radius="33" Continent="None" Comment="" />
+    <Blackspot X="-11001.7217" Y="1494.061" Z="43.7383957" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-10981.5068" Y="1483.77722" Z="50.6092949" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-5870.843" Y="-2847.529" Z="366.184" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5869.278" Y="-2839.92651" Z="367.2525" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5869.278" Y="-2839.92651" Z="367.2525" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-4927.879" Y="-3414.59" Z="304.165741" Radius="150" Continent="None" Comment="" />
+    <Blackspot X="-4923.483" Y="-3403.20947" Z="304.412354" Radius="150" Continent="None" Comment="" />
+    <Blackspot X="-5068.377" Y="-3608.336" Z="301.41803" Radius="40" Continent="None" Comment="" />
+    <Blackspot X="-4868.63867" Y="-3790.35376" Z="303.523621" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5093.498" Y="-3882.46118" Z="326.8408" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-4954.974" Y="-3752.776" Z="319.33316" Radius="35" Continent="None" Comment="" />
+    <Blackspot X="-5078.974" Y="-3824.84448" Z="317.062" Radius="35" Continent="None" Comment="" />
+    <Blackspot X="-5107.17871" Y="-3849.043" Z="320.995026" Radius="35" Continent="None" Comment="" />
+    <Blackspot X="-4871.62451" Y="-4010.15283" Z="306.0679" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-4895.406" Y="-3900.68335" Z="301.7228" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-4913.22754" Y="-3947.40356" Z="299.455" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-4940.36426" Y="-4015.694" Z="300.214752" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5022.17871" Y="-4030.26953" Z="302.3743" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-4977.588" Y="-3889.74561" Z="307.8973" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5012.57275" Y="-3915.02271" Z="306.47345" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-9952.724" Y="1201.84937" Z="42.6941338" Radius="35" Continent="None" Comment="" />
+    <Blackspot X="-10024.7412" Y="1817.46729" Z="37.64682" Radius="40" Continent="None" Comment="" />
+    <Blackspot X="-9773.159" Y="-2272.07446" Z="59.4045143" Radius="35" Continent="None" Comment="" />
+    <Blackspot X="-9799.762" Y="-2284.5874" Z="62.8488274" Radius="35" Continent="None" Comment="" />
+    <Blackspot X="-9772.886" Y="-2272.36035" Z="59.4310036" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9772.886" Y="-2272.36035" Z="59.4310036" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9786.338" Y="-2264.419" Z="60.6787071" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-9792.52" Y="-2277.28857" Z="61.0989532" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-9800.531" Y="-2273.42163" Z="63.28397" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-9786.254" Y="-2281.819" Z="60.6387062" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-9779.116" Y="-2283.713" Z="60.64848" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-9777.825" Y="-2261.75366" Z="59.5457535" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-9771.047" Y="-2262.27637" Z="59.2778664" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-9793.559" Y="-2265.297" Z="62.4607048" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-9785.469" Y="-2273.97119" Z="59.8689" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-9778.767" Y="-2260.52661" Z="59.84568" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-5674.53857" Y="-3183.49878" Z="318.3162" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-4966.769" Y="-3771.29663" Z="322.1827" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-5001.234" Y="-3780.15137" Z="320.553162" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-5010.02" Y="-3791.14624" Z="321.951935" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-4926.3623" Y="-3759.03735" Z="319.778961" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-4915.47461" Y="-3758.30249" Z="316.853241" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-4906.514" Y="-3757.97144" Z="316.34726" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-4932.078" Y="-3743.62866" Z="318.429626" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10214.8125" Y="619.0866" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10207.0518" Y="582.1819" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10188.4043" Y="539.6791" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10158.833" Y="510.0704" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10120.9971" Y="471.302551" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10090.5566" Y="415.4447" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10081.7207" Y="362.00592" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10092.3633" Y="320.108582" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10106.3857" Y="279.035767" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10118.2148" Y="240.001785" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10131.1367" Y="196.425842" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10134.9053" Y="161.010223" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10135.5264" Y="122.321449" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10133.1631" Y="81.0721741" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10130.4863" Y="40.3445969" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10108.9385" Y="10.064229" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10088.4365" Y="-27.5752621" Z="19.8472843" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10066.5332" Y="-63.68201" Z="19.966629" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10046.4014" Y="-99.1386" Z="19.966629" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10024.0029" Y="-130.078354" Z="19.966629" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10009.5586" Y="-164.048416" Z="19.19364" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10001.9229" Y="-232.674728" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9997.934" Y="-286.1891" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9991.032" Y="-324.81427" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9973.481" Y="-369.8885" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9952.491" Y="-416.516541" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9931.281" Y="-451.9709" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9909.585" Y="-487.717072" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9878.003" Y="-539.8402" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9871.158" Y="-591.87384" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9880.738" Y="-639.270142" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9895.402" Y="-687.1876" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9912.327" Y="-740.3214" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9923.03" Y="-786.078552" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9932.307" Y="-835.3196" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9939.328" Y="-887.5178" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9945.269" Y="-938.807739" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9949.379" Y="-984.066345" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9961.877" Y="-1019.39789" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9967.297" Y="-1049.38916" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9973.374" Y="-1094.95789" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9975.692" Y="-1143.94666" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9976.869" Y="-1188.883" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9978.599" Y="-1227.03918" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9988.018" Y="-1271.993" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9990.216" Y="-1311.71094" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9991.156" Y="-1357.14758" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9991.788" Y="-1394.3291" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9986.064" Y="-1437.80176" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9960.502" Y="-1481.50977" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9931.417" Y="-1525.389" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9900.33" Y="-1567.72791" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9882.118" Y="-1610.51013" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-9884.911" Y="-1648.47559" Z="19.9745" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-10006.5645" Y="-186.725586" Z="19.8950863" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-4875.833" Y="-3818.37061" Z="304.607849" Radius="60" Continent="None" Comment="" />
+    <Blackspot X="-4879.25342" Y="-3748.513" Z="311.617584" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-4852.45459" Y="-3776.542" Z="308.4561" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-4952.8916" Y="-3749.9585" Z="318.7836" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-5077.94043" Y="-3824.10742" Z="316.9481" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-5107.136" Y="-3847.09473" Z="320.634644" Radius="25" Continent="None" Comment="" />
+    <Blackspot X="-4903.30469" Y="-3975.10034" Z="298.271942" Radius="80" Continent="None" Comment="" />
+    <Blackspot X="-9250.196" Y="-706.254761" Z="63.0218849" Radius="32" Continent="None" Comment="" />
+    <Blackspot X="-10067.2822" Y="629.4381" Z="39.2663765" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9948.674" Y="618.5817" Z="37.20635" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-9932.224" Y="579.030762" Z="37.2327728" Radius="30" Continent="None" Comment="" />
+    <Blackspot X="-10002.7754" Y="659.1107" Z="36.1645775" Radius="35" Continent="None" Comment="" />
+    <Blackspot X="-5577.167" Y="-3314.37646" Z="297.605652" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5647.85547" Y="-3360.21143" Z="297.6057" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5680.575" Y="-3402.271" Z="297.60553" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5615.29053" Y="-3407.49048" Z="297.6055" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5616.79248" Y="-3467.95483" Z="297.598877" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5482.54541" Y="-3285.40063" Z="297.6061" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5419.5083" Y="-3280.874" Z="297.6061" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5374.43848" Y="-3240.77734" Z="297.6061" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5321.224" Y="-3234.02319" Z="297.6061" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-5267.70947" Y="-3236.423" Z="297.6061" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11415.75" Y="1821.36194" Z="-1.32846129" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11411.05" Y="1826.56042" Z="-1.92037368" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11414.7666" Y="1826.12476" Z="-2.49548173" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11417.165" Y="1813.53979" Z="0.586063266" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11411.1426" Y="1809.27368" Z="3.14817119" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11404.1006" Y="1812.99243" Z="3.45870376" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11407.54" Y="1819.17407" Z="0.844615638" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11412.958" Y="1813.65979" Z="4.061131" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11127.6729" Y="2081.00757" Z="-6.18652439" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11124.1406" Y="2075.685" Z="-5.105118" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11128.8145" Y="2069.71143" Z="-5.14862967" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11130.9453" Y="2070.86157" Z="-5.466821" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11133.8994" Y="2077.65039" Z="-6.32299566" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-11130.1592" Y="2073.63477" Z="-0.340357423" Radius="7" Continent="None" Comment="" />
+    <Blackspot X="-9591.439" Y="1064.66333" Z="2.8546164" Radius="20" Continent="None" Comment="" />
+    <Blackspot X="-6854.28271" Y="-1238.96008" Z="240.366074" Radius="300" Continent="None" Comment="" />
+    <Blackspot X="-7203.11328" Y="-1071.27356" Z="242.471176" Radius="300" Continent="None" Comment="" />
+    <Blackspot X="-6356.50439" Y="-2074.52686" Z="242.92218" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-6482.47168" Y="-1965.43164" Z="244.176437" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-6638.93555" Y="-1904.63074" Z="244.149872" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-6783.8877" Y="-1862.45117" Z="244.144012" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-6902.13135" Y="-1797.229" Z="240.744156" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-6981.61328" Y="-1663.57825" Z="240.744125" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-7149.192" Y="-1549.20007" Z="241.578979" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-7164.127" Y="-1307.29956" Z="241.609955" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-7201.52637" Y="-1147.00012" Z="246.746887" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-7333.351" Y="-1083.02563" Z="277.069031" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-6033.60938" Y="-2492.575" Z="309.816437" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-6822.59961" Y="-3423.27051" Z="242.739136" Radius="500" Continent="None" Comment="" />
+    <Blackspot X="-6918.118" Y="-2713.252" Z="241.902557" Radius="500" Continent="None" Comment="" />
+    <Blackspot X="-6171.03174" Y="-3373.72" Z="243.439087" Radius="200" Continent="None" Comment="" />
+    <Blackspot X="-10360.6367" Y="1108.59973" Z="35.7274666" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-10374.6182" Y="1522.76" Z="42.578598" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-9898.476" Y="1610.6488" Z="39.2272" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-10795.9326" Y="1547.609" Z="49.9813423" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-10857.9795" Y="1674.73608" Z="39.18758" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-10982.7861" Y="1817.48108" Z="44.4587326" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-10141.958" Y="891.609741" Z="35.6476746" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11147.2158" Y="433.0886" Z="36.5313568" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11125.3477" Y="381.593536" Z="19.68161" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11183.5039" Y="328.1983" Z="19.68161" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11234.6855" Y="299.211" Z="19.1096916" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11308.877" Y="293.501953" Z="14.7758293" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11380.72" Y="283.9083" Z="9.461026" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11433.8955" Y="247.179337" Z="8.623153" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11725.7607" Y="596.8475" Z="50.54006" Radius="250" Continent="None" Comment="" />
+    <Blackspot X="-12163.62" Y="307.3956" Z="3.3696723" Radius="250" Continent="None" Comment="" />
+    <Blackspot X="-12024.7705" Y="-171.13884" Z="14.8067007" Radius="250" Continent="None" Comment="" />
+    <Blackspot X="-11828.5361" Y="-625.4118" Z="13.7573166" Radius="250" Continent="None" Comment="" />
+    <Blackspot X="-11484.4121" Y="-629.8751" Z="32.6278877" Radius="100" Continent="None" Comment="" />
+    <Blackspot X="-11434.5615" Y="-285.523682" Z="48.091217" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11374.5781" Y="-341.4591" Z="65.5241241" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11337.2764" Y="-379.455353" Z="65.39398" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11263.96" Y="-370.373047" Z="60.3956146" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11206.292" Y="-380.219635" Z="49.4463844" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-11123.9785" Y="-374.884918" Z="45.6015778" Radius="50" Continent="None" Comment="" />
+    <Blackspot X="-10223.6445" Y="1445.78052" Z="40.6567" Radius="50" Continent="None" Comment="" />
   </Blackspots>
 </EasyQuestProfile>
